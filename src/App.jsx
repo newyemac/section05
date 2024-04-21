@@ -5,7 +5,41 @@ import {useState} from "react";
 // import Main from './components/Main'
 // import Footer from './components/Footer'
 // import Button from './components/Button'
+const Bulb = () => {
+  const [light, setLight] = useState("OFF")
 
+  return (
+    <div>
+      {light === "ON" ? (
+        <h1 style={{backgroundColor: "orange"}}>ON</h1>
+      ) : (
+        <h1 style={{backgroundColor: "gray"}}>OFF</h1>
+      )
+      }
+
+<button onClick={() => {
+      setLight(light === "ON" ? "OFF":"ON")
+    }}>
+      {light === "ON" ? "끄기":"켜기"}
+    </button>
+    </div>
+  )
+}
+
+const Counter= ()=>{
+  const [count, setCount] = useState(0)
+
+  return (
+    <div>
+    <h1>{count}</h1>
+    <button onClick ={() =>{
+      setCount(count+1)
+    }}>
+      +
+    </button>
+    </div>
+  )
+}
 function App() {
   // return (
   //   <>
@@ -14,26 +48,12 @@ function App() {
   //     <Button text={"블로그"}/>
   //   </>
   // ) 
-  const [count, setCount] = useState(0)
-  const [light, setLight] = useState("OFF")
+
+
 
   return <>
-  <div>
-    <h1>{light}</h1>
-    <button onClick={() => {
-      setLight(light === "ON" ? "OFF":"ON")
-    }}>
-      {light === "ON" ? "끄기":"켜기"}
-    </button>
-  </div>
-  <div>
-    <h1>{count}</h1>
-    <button onClick ={() =>{
-      setCount(count+1)
-    }}>
-      +
-    </button>
-    </div>
+    <Bulb />
+    <Counter />
   </>
 } 
 
